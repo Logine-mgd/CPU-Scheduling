@@ -15,7 +15,7 @@ int actual_size2=0;
 int actual_size3=0;
 struct Process
 {
-    //int quants;
+    
     char name;
     int id;
     int arrivaltime;
@@ -225,13 +225,11 @@ int maximumHRRN(vector<int> v,vector<Process> Processes )
     for(int x=0; x<actual_size; x++)
     {
         int idd=v[x];
-        // cout<<"HRRN of Processes["<<x<<"]= "<<Processes[idd].HRRN<<endl;
         if(max< Processes[idd].HRRN)
         {
             max=Processes[v[x]].HRRN;
             IDMAX=x;
-            //  cout<<"MAXIMUM updated = "<<max<<"// ID// Process of max= "<<IDMAX<<endl;
-        }
+             }
 
 
     }
@@ -245,9 +243,7 @@ int maximumFB(vector<int> v,vector<Process> Processes )
     for(int x=0; x<actual_size2; x++)
     {
         int idd=v[x];
-       // cout<<" pry  of Processes[= "<<Processes[idd].pry<<endl;
-
-        if(max< Processes[idd].pry)
+          if(max< Processes[idd].pry)
         {
            // cout<<"entered"<<endl;
             max=Processes[v[x]].pry;
@@ -299,8 +295,7 @@ int remove1stelementSRTANDreturn(vector<int>& nums,vector<Process>& ProcessSRT)
         nums[s]=0;
     }
     actual_size3--;
-    // ProcessFB[val].HRRN=-1000;
-
+    
     return val;
 }
 void FCFS(string form,int last_inst,int numberofp,char process[100],float wt[100],float arrivalt[100],float servicet[100])
@@ -440,12 +435,8 @@ int main()
         type.push_back(intermediate);
     }
 
-    // cout << "Enter quantum";
-    // cin >> quant;
-    //cout << "Enter last instance to be used ";
-    cin >> last_inst;
-    // cout << "Enter number of processes";
-    cin >> numberofp;
+      cin >> last_inst;
+cin >> numberofp;
     vector <Process> Processes(numberofp);
     queue <int> ProcessIDQueue;
     int quantt,ii,st,flagID,flagIDD;
@@ -462,8 +453,6 @@ int main()
     char comma;
     for(int i=0; i< numberofp; i++)
     {
-        //cin >> name[i];
-        //Processes[i].name= static_cast<char>(letter+i);
         Processes[i].id= i;
 
         cin >> Processes[i].name >> comma >> Processes[i].arrivaltime >> comma >> Processes[i].servicetime;
@@ -471,10 +460,7 @@ int main()
         process[i]=Processes[i].name;
         arrivalt[i]=Processes[i].arrivaltime;
         servicet[i]=Processes[i].servicetime;
-        //cout << "Enter arrival time";
-        //cin>> Processes[i].arrivaltime;
-        //cout << "Enter service time";
-        //cin>> Processes[i].servicetime;
+       
     }
     float wt[numberofp];
     wt[0]=0;
@@ -482,17 +468,7 @@ int main()
     {
         wt[i]=servicet[i-1]+wt[i-1];
     }
-    // for(int i=0; i< numberofp; i++)
-    //{
-    //cin >> name[i];
-//Processes[i].name= static_cast<char>(letter+i);
-//Processes[i].id= i;
-    //  cout<<"id is " <<Processes[i].id;
-//cout << "Enter arrival time";
-    //  cout<< "arrival is "<<Processes[i].arrivaltime;
-//cout << "Enter service time";
-    //   cout<<"service is is "<<Processes[i].servicetime<<endl;
-    //  }
+   
     vector<Process> Vectorcpy=save(Processes,numberofp);
     for(int i=0; i<type.size(); i++)
     {
@@ -515,15 +491,12 @@ int main()
                     {
                         PrvectorSPN[actual_size]= Processes[j].id;
                         actual_size++;
-                        // cout<<Processes[j].id<<" is pushed "<<endl;
-                    }
+                         }
                 }
 
                 int mini=minimum(PrvectorSPN,Processes);
 
-                // cout<<"ID of minimum "<<mini<<endl;
-                //    cout<<"ID of Prvector[0] "<<PrvectorSPN[0]<<endl;
-                if(actual_size)
+                  if(actual_size)
                 {
                     //  cout<<"BEFORE swap Prvector[mini]= "<<PrvectorSPN[mini]<<"AND  Prvector[0]= "<<PrvectorSPN[0]<<endl;
 
@@ -559,9 +532,7 @@ int main()
                             {
                                 int id3=PrvectorSPN[j];
                                 Processes[id3].work[i]=-3;
-                                //     cout<< "at process "<<id3<<"at xx = "<<i<<" : " <<Processes[id3].work[i]<<endl;
-
-
+                             
                             }
 
                             for(int xx=i+1; xx<= ix; xx++)
@@ -612,12 +583,8 @@ int main()
                             }
                         }
                         mini=minimum(PrvectorSPN,Processes);
-
-                        //  cout<<"ID of minimum "<<mini<<endl;
-                        //    cout<<"ID of Prvector[0] "<<PrvectorSPN[0]<<endl;
-                        if(actual_size)
+   if(actual_size)
                         {
-                            // cout<<"BEFORE swap Prvector[mini]= "<<PrvectorSPN[mini]<<"AND  Prvector[0]= "<<PrvectorSPN[0]<<endl;
                             for(int z=mini; z>0; z--)
                             {
                                 swap(PrvectorSPN[z],PrvectorSPN[z-1]);
@@ -671,7 +638,6 @@ int main()
                         int id = remove1stelementSRTANDreturn(PrvectorSRT,Processes);
 
 
-                        // ProcessIDQueue.pop();
                         if(Processes[id].servicetime > quanto)
                         {
                             quantt = quanto,ii=i;
@@ -865,14 +831,11 @@ int main()
                                     }
                                 }
 
-                                // cout<< Prvector.size()<<endl;
                                 for( int j =0; j<actual_size; j++)
                                 {
                                     int id3=Prvector[j];
                                     Processes[id3].work[xx]=-3;
-                                    //    cout<< "at process "<<id3<<"at xx = "<<xx<<" : " <<Processes[id3].work[xx]<<endl;
-
-
+                                  
                                 }
 
                             }
@@ -894,7 +857,6 @@ int main()
                                 {
                                     Prvector[actual_size]=Processes[j].id;
                                     actual_size++;
-                                    //     cout<<"pushed";
                                 }
                             }
                         }
@@ -924,7 +886,6 @@ int main()
                             for(int z=maxi; z>0; z--)
                             {
                                 swap(Prvector[z],Prvector[z-1]);
-                                //  cout<<"AFTER swap Prvector[maxi]= "<<Prvector[z]<<"AND  Prvector[0]= "<<Prvector[z-1]<<endl;
                             }
                         }
                         i=ix;
@@ -1033,9 +994,7 @@ int main()
                             while(st)
                             {
 
-                                //  int si=ProcessIDQueueCopy.size();
-                                //  for(int x=0; x<si; x++)
-                                //  {
+                              
                                 for( int j =0; j<actual_size2; j++)
                                 {
                                     int id3=PrvectorFB[j];
@@ -1149,7 +1108,6 @@ int main()
                     Processes[z].servicetime=Processes[z].workk;
                 }
 
-                // print(Processes,numberofp,6,form,last_inst,quant);
                 if(type[i]=="6")
                 {
                     print(Processes,numberofp,6,form,last_inst,1);
@@ -1351,9 +1309,6 @@ int main()
 
 
 
-            
-            //  cout<<Processes[0].workk; cout<< " ";
-            //cout<<Processes[0].wait;
 
         }
 
